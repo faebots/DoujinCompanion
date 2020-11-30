@@ -5,12 +5,13 @@ using SQLite;
 
 namespace DoujinDb.Entities
 {
-    class OrderItem : Entity
+    class BookTag : Entity
     {
         [PrimaryKey, AutoIncrement]
         public override int Id { get; set; }
         [Indexed]
-        public int OrderId { get; set; }
-        public string Item { get; set; }
+        public int BookId { get; set; }
+        [Indexed]
+        public int TagId { get; set; }
     }
 }

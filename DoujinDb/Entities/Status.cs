@@ -5,11 +5,21 @@ using SQLite;
 
 namespace DoujinDb.Entities
 {
-    class Status
+    class Status : Entity
     {
-        [PrimaryKey]
-        string StatusCode { get; set; }
-        string Name { get; set; }
-        Models.StatusType Type { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public override int Id { get; set; }
+        public string Name { get; set; }
+        public Models.StatusType Type { get; set; }
+
+        public Models.Status ToModel()
+        {
+            return new Models.Status
+            {
+                Id = Id,
+                Name = Name,
+                Type = Type
+            };
+        }
     }
 }

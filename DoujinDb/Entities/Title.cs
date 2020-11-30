@@ -5,12 +5,14 @@ using SQLite;
 
 namespace DoujinDb.Entities
 {
-    class Title
+    class Title : Entity
     {
+        [PrimaryKey, AutoIncrement]
+        public override int Id { get; set; }
         [Indexed]
-        int DoujinId { get; set; }
+        public int BookId { get; set; }
         [Indexed]
-        Models.Language Language { get; set; } //Doujinshi.Title key
-        string Name { get; set; } //Doujinshi.Title value
+        public Models.Language Language { get; set; }
+        public string Name { get; set; }
     }
 }

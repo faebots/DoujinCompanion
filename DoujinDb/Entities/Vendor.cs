@@ -5,20 +5,20 @@ using SQLite;
 
 namespace DoujinDb.Entities
 {
-    class File : Entity
+    class Vendor : Entity
     {
         [PrimaryKey, AutoIncrement]
         public override int Id { get; set; }
-        public string FilePath { get; set; }
-        public string FileType { get; set; }
+        public string Name { get; set; }
+        public string Url { get; set; }
 
-        public Models.StoredFile ToModel()
+        public Models.Vendor ToModel()
         {
-            return new Models.StoredFile
+            return new Models.Vendor
             {
                 Id = Id,
-                FilePath = FilePath,
-                FileType = FileType
+                Name = Name,
+                Url = Url
             };
         }
     }

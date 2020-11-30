@@ -4,20 +4,18 @@ using System.Text;
 
 namespace DoujinDb.Models
 {
-    public class Proxy : Model
+    public class Tag : Model
     {
         public override int? Id { get; set; }
         public string Name { get; set; }
-        public string Url { get; set; }
-        public ProxyType Type { get; set; }
+        public bool IsWarning { get; set; }
 
-        internal override Entities.Entity ToEntity ()
+        internal override Entities.Entity ToEntity()
         {
-            var e = new Entities.Proxy
+            var e = new Entities.Tag
             {
                 Name = Name,
-                Url = Url,
-                Type = Type
+                IsWarning = IsWarning
             };
             if (Id.HasValue)
                 e.Id = Id.Value;
